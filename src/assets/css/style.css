@@ -1,0 +1,59 @@
+/* Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+  background-color: var(--primary);
+  font-family: "Poppins", sans-serif;
+}
+
+/* custom variables */
+:root{
+  --primary: #1B1B1B;
+  --secondary: white;
+  --alternative: #A45DBB;
+  --awesome: #292929;
+  --mainBoxShadow: .5vw .5vw .3vw var(--alternative), inset .8vw 1vw .2vw var(--secondary), 1vw 1vw .2vw var(--secondary); 
+  --borderColor: #8644A2;
+  --elementShadow: .2vw .3vw .2vw #FFEBB2;  
+  --bgHeaderFooter: black;
+}
+
+@property --top-left{
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+
+@property --top-right{
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+
+@property --bottom-left{
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --bottom-right{
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2C3E50;
+}
