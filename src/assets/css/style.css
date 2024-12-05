@@ -12,6 +12,16 @@
 .wrapper{
   background-color: var(--primary);
   font-family: "Poppins", sans-serif;
+  color: inherit;
+}
+
+.wrapper.sun-mode {
+  background-color: var(--secondary); 
+  color: black !important;
+}
+
+.wrapper.text-black {
+  color: black !important; /* Change text color to black when sunClicked is true */
 }
 
 /* custom variables */
@@ -56,4 +66,32 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2C3E50;
+}
+
+/* Grid Layout */
+:is(.wrapper) {
+  display: grid;
+  text-align: center;
+}
+
+/* Create 3 rows */
+:is(.wrapper){
+  grid-template-rows: auto minmax(1fr, 100dvh) auto;
+}
+
+section {
+  scroll-margin-block: 5rem;
+}
+
+/* Universal Selector */
+/* Custom CSS */
+html::-webkit-scrollbar {
+  width: 0.5rem;
+}
+html::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--alternative);
+  border-radius: 5rem;
 }

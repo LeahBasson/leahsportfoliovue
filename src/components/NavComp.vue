@@ -3,10 +3,11 @@
     <!-- Menu Section -->
     <div :class="['menu-section', { on: menuOpen }]">
       <div class="logo">
-        <a href="#">
+        <a href="#home">
           <img class="img-fluid" src="https://leahbasson.github.io/MyImages/images/newLogoPortfolio3.png" alt="logo" loading="lazy">
         </a>
       </div>
+      
       <div class="menu-toggle" @click="toggleMenu">
         <div class="one" :style="lineStyle('one')"></div>
         <div class="two" :style="lineStyle('two')"></div>
@@ -18,7 +19,7 @@
     <nav>
       <ul role="navigation" :class="{ hidden: !menuOpen }">
         <li v-for="item in menuItems" :key="item.text">
-          <a :href="item.link">{{ item.text }}</a>
+          <a :href="item.link" @click="handleNavClick(item.link)">{{ item.text }}</a>
         </li>
       </ul>
     </nav>
@@ -31,10 +32,11 @@ export default {
     return {
       menuOpen: false,
       menuItems: [
-        { text: 'work', link: '#' },
-        { text: 'about', link: '#' },
-        { text: 'resume', link: '#' },
-        { text: 'contact', link: '#' },
+        { text: 'home', link: '#home' },
+        { text: 'about', link: '#about' },
+        { text: 'edu/exp', link: '#EduExp' },
+        { text: 'projects', link: '#projects' },
+        { text: 'contact', link: '#contact' }
       ],
     };
   },
@@ -50,23 +52,41 @@ export default {
       }
       return {};
     },
+    handleNavClick(link) {
+      // Close the menu
+      this.menuOpen = false;
+
+      // Scroll to the target section smoothly
+      const target = document.querySelector(link);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
   },
 };
 </script>
 
+
 <style scoped>
 .menu-section {
   width: 100%;
-  position: relative;
   display: flex;
-  align-items: center; /* Align items vertically */
-  justify-content: space-between; /* Space out items: logo on left, menu toggle on right */
-  padding: 30px 100px;
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 30px 80px;
+  background-color: var(--primary);
+  position: fixed;
+  z-index: 10;
 }
 
 .logo a img {
   width: 100px;
   height: auto;
+  transition: all .5s;
+  
+  &:hover{
+      transform: scale(1.2);
+  }
 }
 
 .menu-toggle {
@@ -76,7 +96,10 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-right: 2.5rem;
+  position: relative;
 }
+
 
 .one,
 .two,
@@ -88,8 +111,8 @@ export default {
 }
 
 nav {
-  position: absolute;
-  top: 110px; /* Adjust as needed */
+  position: fixed;
+  top: 130px; 
   width: 100%;
   background-color: var(--primary);
   z-index: 9;
@@ -100,7 +123,7 @@ nav ul {
   margin: 0;
   padding: 26px 0;
   list-style: none;
-  font-size: 47px;
+  font-size: 38px;
 }
 
 nav ul.hidden {
@@ -117,7 +140,54 @@ nav ul a {
 }
 
 nav ul a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--alternative);
 }
 
+/* Media query for 555px and less*/
+@media (max-width: 555px)
+{
+  nav ul {
+  margin: 0;
+  padding: 26px 0;
+  list-style: none;
+  font-size: 20px;
+}
+
+.menu-section {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 30px 20px;
+}
+
+.menu-toggle {
+  margin-right: 1.6rem;
+}
+}
+
+/* Media query 556px to 999px */
+@media (min-width: 556px) and (max-width: 999px)
+{
+  nav ul {
+  margin: 0;
+  padding: 26px 0;
+  list-style: none;
+  font-size: 20px;
+}
+
+.menu-section {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 30px 60px;
+}
+
+.menu-toggle {
+  margin-right: 1.6rem;
+}
+}
 </style>
