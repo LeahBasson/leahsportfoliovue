@@ -1,5 +1,5 @@
 <template>
-    <div class="edu-exp-container" id="EduExp">
+    <div class="edu-exp-container" id="EduExp" data-aos="fade-up"  data-aos-duration="3000">
         <!-- Bubble Animation --> 
         <div class="bubble-container-three"> 
             <div class="bubbles-three"> 
@@ -72,7 +72,7 @@
     .bubble-container-three
     { 
         position: absolute; 
-        width: 90%; 
+        width: 95%; 
         height: 100%; 
         z-index: 0; 
     } 
@@ -109,7 +109,7 @@
         width: 120px; 
         height: 120px; 
         top: 73%; 
-        left: 80%; 
+        left: 85%; 
         background: #a459d1; box-shadow: 0 0 0 15px #ff2d7544, 0 0 30px #ff2d75, 0 0 60px #ff2d75; 
         animation-duration: 8s; 
         z-index: 0; 

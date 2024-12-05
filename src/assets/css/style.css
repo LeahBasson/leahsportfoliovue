@@ -27,7 +27,7 @@
 /* custom variables */
 :root{
   --primary: #1B1B1B;
-  --secondary: white;
+  --secondary: #ffffff;
   --alternative: #A45DBB;
   --awesome: #292929;
   --mainBoxShadow: .5vw .5vw .3vw var(--alternative), inset .8vw 1vw .2vw var(--secondary), 1vw 1vw .2vw var(--secondary); 
