@@ -2,65 +2,96 @@
     <div class="certificate-container">
       <h1>Certificates</h1>
       <div class="certificate-listing" v-if="certificateIntro?.length">
-        <EduCard v-for="certificate in certificateIntro" :key="certificate.id" @click="showModal(certificate.id)">
+        <EduCard
+          v-for="certificate in certificateIntro"
+          :key="certificate.id"
+          @click="showModal(certificate)"
+          data-bs-toggle="modal"
+          data-bs-target="#certificateModal"
+        >
           <template #header>
-            <h3>{{ certificate.title }}</h3>
+            <h3>{{ certificate.id }}</h3>
           </template>
           <template #content>
-            <img :src="certificate.img_url" alt="Certificate Image" />
+            <p>{{ certificate.title }}</p>
           </template>
         </EduCard>
       </div>
-      <ModalComp v-if="selectedCertificate" @close="closeModal">
-        <h3>{{ selectedCertificate.title }}</h3>
-        <img :src="selectedCertificate.img_url" alt="Certificate Image" />
-        <ul>
-          <li v-for="cert in selectedCertificateDetails" :key="cert.id">{{ cert.certificate }}</li>
-        </ul>
-      </ModalComp>
+  
+      <!-- Bootstrap Modal -->
+      <div
+        class="modal fade"
+        id="certificateModal"
+        tabindex="-1"
+        aria-labelledby="certificateModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="certificateModalLabel">
+                {{ selectedCertificate?.title }}
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div v-if="selectedCertificate">
+                <div  class="certificate-content" v-for="cert in selectedCertificate.certificates" :key="cert.id">
+                  <img :src="cert.img_url" alt="Certificate Image" />
+                  {{ cert.certificate }}
+              </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </template>
   
   <script>
-    import AOS from 'aos';
-    import EduCard from './EduCard.vue';
-    import ModalComp from './ModalComp.vue';
-    import { computed, onMounted, ref } from 'vue';
-    import { useStore } from 'vuex';
+  import AOS from "aos";
+  import EduCard from "./EduCard.vue";
+  import { computed, onMounted, ref } from "vue";
+  import { useStore } from "vuex";
   
-    export default {
-      name: "CertificateComponent",
-      components: {
-        EduCard,
-        ModalComp
-      },
-      setup() {
-        const store = useStore();
-        const certificateIntro = computed(() => store.state.certificateIntro);
-        const certificates = computed(() => store.state.certificates);
-        const selectedCertificate = ref(null);
-        const selectedCertificateDetails = ref([]);
+  export default {
+    name: "CertificateComponent",
+    components: {
+      EduCard,
+    },
+    setup() {
+      const store = useStore();
+      const certificateIntro = computed(() => store.state.certificateIntro);
+      const selectedCertificate = ref(null);
   
-        onMounted(() => {
-          setTimeout(() => {
-            store.dispatch('fetchCertificateIntro');
-          }, 1000);
-          AOS.init();
-        });
+      onMounted(() => {
+        setTimeout(() => {
+          store.dispatch("fetchCertificateIntro");
+        }, 1000);
+        AOS.init();
+      });
   
-        const showModal = (id) => {
-          selectedCertificate.value = certificateIntro.value.find(cert => cert.id === id);
-          selectedCertificateDetails.value = certificates.value.filter(cert => cert.id === id);
-        };
+      const showModal = (certificate) => {
+        selectedCertificate.value = certificate;
+      };
   
-        const closeModal = () => {
-          selectedCertificate.value = null;
-          selectedCertificateDetails.value = [];
-        };
-  
-        return { certificateIntro, selectedCertificate, selectedCertificateDetails, showModal, closeModal };
-      }
-    };
+      return { certificateIntro, selectedCertificate, showModal };
+    },
+  };
   </script>
   
   <style>
@@ -82,9 +113,26 @@
     gap: 90px;
     margin-top: 2rem;
   }
-  
-  .modal {
-    /* Add styles for the modal here */
+
+  img[alt="Certificate Image"]{
+    width: 26rem;
+    /* margin: auto; */
   }
+
+.certificate-content{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .modal-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+  padding-top: 2rem;
+} */
+
   </style>
   

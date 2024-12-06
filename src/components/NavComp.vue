@@ -36,7 +36,7 @@ export default {
         { text: 'about', link: '#about' },
         { text: 'edu/exp', link: '#EduExp' },
         { text: 'projects', link: '#projects' },
-        { text: 'contact', link: '#contact' }
+        { text: 'reach me', link: '#contact' }
       ],
     };
   },

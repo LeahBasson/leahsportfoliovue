@@ -50,5 +50,15 @@
     font-size: 1.5rem;
     cursor: pointer;
   }
+
+  .modal-overlay {
+  background: rgba(0, 0, 0, 0.8) !important;
+  z-index: 9999 !important;
+}
+.modal {
+  display: block !important;
+  opacity: 1 !important;
+}
+
   </style>
   

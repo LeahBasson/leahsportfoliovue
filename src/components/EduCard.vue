@@ -38,7 +38,7 @@ export default {
 .card-border {
   position: relative;
   width: 262px;
-  height: 262px;
+  height: 222px;
   border-radius: 10px;
   overflow: hidden;
   padding: 5px;
