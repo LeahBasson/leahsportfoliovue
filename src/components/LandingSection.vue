@@ -14,7 +14,10 @@
                 <TypeWriter />
             </div>
             <div>
-                <ButtonEffect />
+                <ButtonEffect 
+      label="Download my CV" 
+      href="https://drive.google.com/uc?export=download&id=14w-z1FlW2TWwZXZtA_xrgnvuEEyQfzS6"
+    />
             </div>
             <div class="home-icons">
             <a class="lnk text-white" href="mailto:your-email@example.com" alt="outlook icon" target="_blank"><i class="bi bi-envelope"></i></a>
@@ -49,7 +52,7 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 2rem;
+    gap: 0rem;
     padding-top: 160px;
 }
 
@@ -73,6 +76,7 @@ export default {
 
 .landing-image{
     margin-top: -10rem;
+    margin-right: 2rem;
 }
 
 img[alt='leah']{
@@ -218,6 +222,7 @@ img[alt='leah']{
 
 .landing-image{
     margin-top: 1rem;
+    margin-right: 0rem;
 }
 
 img[alt='leah']{
@@ -276,6 +281,7 @@ img[alt='leah']{
 
 .landing-image{
     margin-top: 1rem;
+    margin-right: 0rem;
 }
 
 img[alt='leah']{

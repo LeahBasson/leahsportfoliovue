@@ -1,7 +1,7 @@
 <template>
     <div class="modal-overlay" @click.self="close">
       <div class="modal">
-        <button class="close-button" @click="close">&times;</button>
+        <!-- <button class="close-button text-white bg-transparent" @click="close">&times;</button> -->
         <slot></slot>
       </div>
     </div>
@@ -33,7 +33,7 @@
   }
   
   .modal {
-    background: white;
+    background: var(--awesome);
     padding: 20px;
     border-radius: 10px;
     max-width: 500px;
@@ -41,15 +41,15 @@
     position: relative;
   }
   
-  .close-button {
+  /* .close-button {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: none;
+    color: var(--secondary);
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-  }
+  } */
 
   .modal-overlay {
   background: rgba(0, 0, 0, 0.8) !important;
