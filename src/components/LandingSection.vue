@@ -150,7 +150,7 @@ img[alt='leah']{
 {
     width: 30px;
     height: 30px;
-    top: 5%; 
+    top: 15%; 
     left: 50%;
     background: #A459D1;
     box-shadow: 0 0 0 15px #ff2d7544, 0 0 30px #ff2d75, 0 0 60px #ff2d75;

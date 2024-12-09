@@ -37,7 +37,7 @@ export default {
 
 .card-border {
   position: relative;
-  width: 262px;
+  width: 300px;
   height: 222px;
   border-radius: 10px;
   overflow: hidden;
@@ -93,7 +93,7 @@ export default {
   line-height: 46px;
   font-weight: 700;
   margin-bottom: 4px;
-  border: 2px solid var(--alternative); 
+  /* border: 2px solid var(--alternative);  */
   border-radius: 50px;
   width: 50px;
   height: 50px;
@@ -142,5 +142,37 @@ export default {
 .card1:hover p {
   transition: all 0.3s ease-out;
   color: #ffffff;
+}
+
+/* Media query for 555px and less*/
+@media (max-width: 555px){
+  .card-border {
+  position: relative;
+  width: 288px;
+  height: 222px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 5px;
+  background: linear-gradient(90deg, var(--alternative), var(--awesome), var(--alternative));
+  background-size: 200% 200%;
+  animation: border-move 4s linear infinite;
+  transition: transform 0.3s;
+}
+}
+
+/* Media query 556px to 999px */
+@media (min-width: 556px) and (max-width: 999px){
+  .card-border {
+  position: relative;
+  width: 285px;
+  height: 222px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 5px;
+  background: linear-gradient(90deg, var(--alternative), var(--awesome), var(--alternative));
+  background-size: 200% 200%;
+  animation: border-move 4s linear infinite;
+  transition: transform 0.3s;
+}
 }
 </style>

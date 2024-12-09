@@ -10,13 +10,14 @@
         data-bs-target="#certificateModal"
       >
         <template #header>
-          <h3>{{ certificate.id }}</h3>
+          <img :src="certificate.icon" alt="certificate-icon"/>
         </template>
         <template #content>
           <p>{{ certificate.title }}</p>
         </template>
       </EduCard>
     </div>
+    <Spinner v-else/>
 
     <!-- Bootstrap Modal -->
     <div
@@ -63,12 +64,14 @@ import EduCard from "./EduCard.vue";
 import { computed, onMounted, ref } from "vue";
 import { useStore } from "vuex";
 import ButtonEffect from './ButtonEffect.vue';
+import Spinner from "./Spinner.vue";
 
 export default {
   name: "CertificateComponent",
   components: {
     EduCard,
-    ButtonEffect
+    ButtonEffect,
+    Spinner
   },
   setup() {
     const store = useStore();
@@ -107,54 +110,6 @@ export default {
 </script>
 
 <style scoped>
-.btn-cert-effect {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  width: 12rem;
-  height: 3rem;
-  padding: 12px 22px;
-  border: 1px solid var(--alternative);
-  color: var(--secondary);
-  text-decoration: none;
-  transition: 0.5s ease-in-out;
-  background-color: transparent;
-  text-align: center;
-  border-radius: 0.5rem;
-  margin-top: 2rem;
-}
-
-.btn-cert-effect span {
-  position: absolute;
-  display: block;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background-color: var(--alternative);
-  transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-}
-
-.btn-cert-effect:hover {
-  color: var(--secondary);
-}
-
-.btn-cert-effect:hover span {
-  width: 225%;
-  height: 562.5px;
-}
-
-/* Media query 556px to 999px */
-@media (min-width: 556px) and (max-width: 999px) {
-  .btn-cert-effect {
-    width: 16rem;
-    height: 3.5rem;
-    padding: 10px 22px;
-    font-size: 1.4rem;
-  }
-}
-
 .certificate-container h1 {
   color: var(--secondary);
   font-size: 3.2rem;
@@ -170,12 +125,14 @@ export default {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 90px;
+  gap: 30px;
   margin-top: 2rem;
 }
 
 img[alt="Certificate Image"] {
   width: 26rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .certificate-content {
@@ -183,6 +140,7 @@ img[alt="Certificate Image"] {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  font-size: 1rem;
 }
 
 .modal-body,
@@ -207,5 +165,79 @@ img[alt="Certificate Image"] {
 
 .modal ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/* Media query for 555px and less*/
+@media (max-width: 555px){
+  .certificate-container h1 {
+  color: var(--secondary);
+  font-size: 2.8rem;
+  letter-spacing: 0.1em;
+  text-shadow: -1px -1px 1px #111, 2px 2px 1px var(--alternative);
+}
+
+.certificate-listing {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 2rem;
+}
+
+.certificate-listing p{
+  font-size: 1.5rem;
+}
+
+img[alt="Certificate Image"] {
+  width: 20rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.certificate-content {
+  font-size: 1.2rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+}
+}
+
+/* Media query 556px to 999px */
+@media (min-width: 556px) and (max-width: 999px){
+  .certificate-container h1 {
+  color: var(--secondary);
+  font-size: 2.8rem;
+  letter-spacing: 0.1em;
+  text-shadow: -1px -1px 1px #111, 2px 2px 1px var(--alternative);
+}
+
+.certificate-listing {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 2rem;
+}
+
+.certificate-listing p{
+  font-size: 1.5rem;
+}
+
+img[alt="Certificate Image"] {
+  width: 28rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.certificate-content {
+  font-size: 1.2rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+}
 }
 </style>
