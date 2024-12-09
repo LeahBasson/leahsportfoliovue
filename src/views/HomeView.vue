@@ -15,6 +15,9 @@
    <section class="row">
      <CertificatesSection/>
    </section>
+   <section class="row">
+     <BadgeSection/>
+   </section>
  </div>  
 </template>
 
@@ -24,6 +27,7 @@ import AboutSection from '@/components/AboutSection.vue';
 import SkillsSection from '@/components/SkillsSection.vue';
 import EduAndExp from '@/components/EduAndExp.vue';
 import CertificatesSection from '@/components/CertificatesSection.vue';
+import BadgeSection from '@/components/BadgeSection.vue';
 
 export default {
  name: 'HomeView',
@@ -33,7 +37,8 @@ export default {
   AboutSection,
   SkillsSection,
   EduAndExp,
-  CertificatesSection
+  CertificatesSection,
+  BadgeSection
  }
  
 }

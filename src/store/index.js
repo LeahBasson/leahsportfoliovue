@@ -16,7 +16,8 @@ export default createStore({
     projects: null,
     certificateIntro: null,
     certificates: null,
-    bagdes: null
+    badgeIntro: null,
+    caseStudies: null
   },
   getters: {
   },
@@ -51,8 +52,11 @@ export default createStore({
     setCertificates(state, value){
       state.certificates = value
     },
-    setBagdes(state, value){
-      state.bagdes = value
+    setBadgeIntro(state, value){
+      state.badgeIntro = value
+    },
+    setCaseStudies(state, value){
+      state.caseStudies = value
     }
   },
   actions: {
@@ -186,14 +190,27 @@ export default createStore({
         })
       }
     },
-    async fetchBagdes(context) {
+    async fetchBadgeIntro(context) {
       try {
-        let { bagdes } = await (await axios.get(portfolioURL)).data
-        context.commit("setBagdes", bagdes)
+        let { badgeIntro } = await (await axios.get(portfolioURL)).data
+        context.commit("setBadgeIntro", badgeIntro)
       } catch (e) { 
         Swal.fire({
           title: "Error",
-          text: "Failed to fetch data - bagdes",
+          text: "Failed to fetch data - badges",
+          icon: "error",
+          timer: 2000
+        })
+      }
+    },
+    async fetchCaseStudies(context) {
+      try {
+        let { caseStudies } = await (await axios.get(portfolioURL)).data
+        context.commit("setCaseStudies", caseStudies)
+      } catch (e) { 
+        Swal.fire({
+          title: "Error",
+          text: "Failed to fetch data - case studies",
           icon: "error",
           timer: 2000
         })
