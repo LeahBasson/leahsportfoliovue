@@ -1,5 +1,5 @@
 <template>
-    <div class="edu-exp-container" id="EduExp" data-aos="fade-up"  data-aos-duration="3000">
+    <div class="edu-exp-container" data-aos="fade-up"  data-aos-duration="3000">
         <!-- Bubble Animation --> 
         <div class="bubble-container-three"> 
             <div class="bubbles-three"> 
@@ -191,7 +191,7 @@
         position: relative;
         width: 100%;
         padding: 1rem;
-        background-color: #212121;
+        background-color: var(--awesome);
         border-radius: 0.3rem;
         text-align: left;
     }

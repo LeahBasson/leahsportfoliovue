@@ -38,7 +38,7 @@ export default {
 .card-border {
   position: relative;
   width: 300px;
-  height: 222px;
+  height: 242px;
   border-radius: 10px;
   overflow: hidden;
   padding: 5px;
@@ -53,7 +53,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #212121;
+  background-color: var(--awesome);
   border-radius: 10px;
   padding: 32px 64px;
   margin: 0;
@@ -149,7 +149,7 @@ export default {
   .card-border {
   position: relative;
   width: 288px;
-  height: 222px;
+  height: 242px;
   border-radius: 10px;
   overflow: hidden;
   padding: 5px;
@@ -165,7 +165,7 @@ export default {
   .card-border {
   position: relative;
   width: 285px;
-  height: 222px;
+  height: 242px;
   border-radius: 10px;
   overflow: hidden;
   padding: 5px;
