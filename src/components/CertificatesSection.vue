@@ -1,5 +1,5 @@
 <template>
-  <div class="certificate-container">
+  <div class="certificate-container" data-aos="fade-up"  data-aos-duration="3000">
     <h1>Certificates</h1>
     <div class="certificate-listing" v-if="certificateIntro?.length">
       <EduCard
@@ -77,7 +77,6 @@ export default {
     const store = useStore();
     const certificateIntro = computed(() => store.state.certificateIntro);
     const selectedCertificate = ref(null);
-    // const spanPosition = ref({ top: 0, left: 0 });
 
     onMounted(() => {
       setTimeout(() => {
@@ -90,20 +89,10 @@ export default {
       selectedCertificate.value = certificate;
     };
 
-    // const updateSpanPosition = (event) => {
-    //   const rect = event.currentTarget.getBoundingClientRect();
-    //   spanPosition.value = {
-    //     top: event.clientY - rect.top,
-    //     left: event.clientX - rect.left,
-    //   };
-    // };
-
     return {
       certificateIntro,
       selectedCertificate,
       showModal
-      // spanPosition,
-      // updateSpanPosition,
     };
   },
 };
