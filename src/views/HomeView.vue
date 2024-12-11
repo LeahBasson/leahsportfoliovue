@@ -15,9 +15,9 @@
    <section class="row">
      <CertificatesSection/>
    </section>
-   <section class="row">
+   <!-- <section class="row">
      <BadgeSection/>
-   </section>
+   </section> -->
    <section class="row" id="projects">
      <ProjectsSection/>
    </section>
@@ -30,7 +30,7 @@ import AboutSection from '@/components/AboutSection.vue';
 import SkillsSection from '@/components/SkillsSection.vue';
 import EduAndExp from '@/components/EduAndExp.vue';
 import CertificatesSection from '@/components/CertificatesSection.vue';
-import BadgeSection from '@/components/BadgeSection.vue';
+// import BadgeSection from '@/components/BadgeSection.vue';
 import ProjectsSection from '@/components/ProjectsSection.vue';
 
 export default {
@@ -42,7 +42,7 @@ export default {
   SkillsSection,
   EduAndExp,
   CertificatesSection,
-  BadgeSection,
+  // BadgeSection,
   ProjectsSection
  }
  

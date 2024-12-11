@@ -1,115 +1,99 @@
 <template>
-  <div class="certificate-container" data-aos="fade-up"  data-aos-duration="3000">
-    <h1>Certificates</h1>
-    <div class="certificate-listing" v-if="certificateIntro?.length">
-      <EduCard
-        v-for="certificate in certificateIntro"
-        :key="certificate.id"
-        @click="showModal(certificate)"
-        data-bs-toggle="modal"
-        data-bs-target="#certificateModal"
-      >
-        <template #header>
-          <img :src="certificate.icon" alt="certificate-icon"/>
-        </template>
-        <template #content>
-          <p>{{ certificate.title }}</p>
-        </template>
-      </EduCard>
-    </div>
-    <Spinner v-else/>
+  <div class="container-fluid cert-container">
+      <div class="certificate-heading">
+        <h1>Certificates</h1>
+      </div>
 
-    <!-- Bootstrap Modal -->
-    <div
-      class="modal fade"
-      id="certificateModal"
-      tabindex="-1"
-      aria-labelledby="certificateModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="certificateModalLabel">
-              {{ selectedCertificate?.title }}
-            </h5>
-          </div>
-          <div class="modal-body">
-            <div v-if="selectedCertificate">
-              <div class="certificate-content" v-for="cert in selectedCertificate.certificates" :key="cert.id">
-                <img :src="cert.img_url" alt="Certificate Image" />
-                {{ cert.certificate }}
-              </div>
+      <div class="certificate-listing" v-if="certificateIntro">
+        <div class="card-border" data-bs-toggle="modal" data-bs-target="#awsModal">
+        <a class="card1">
+          <img :src="certificateIntro[0].icon" :alt="certificateIntro[0].title" loading="eager" class="img-fluid cert-icon">
+          <h3>{{  certificateIntro[0].title }}</h3>
+          <div class="go-corner" href="#">
+            <div class="go-arrow">
+              →
             </div>
           </div>
-          <div class="modal-footer">
-            <!-- <button class="btn-cert-effect" data-bs-dismiss="modal">Close
-              <span :style="{ top: `${spanPosition.top}px`, left: `${spanPosition.left}px` }"></span>
-            </button> -->
-            <ButtonEffect
-              label="Close"
-              :action="closeModal"
-              :extraAttributes="{ 'data-bs-dismiss': 'modal' }"
-            />
-        </div>
+        </a>
       </div>
-    </div>
+      <AwsModal />
+     
+      <div class="card-border" data-bs-toggle="modal" data-bs-target="#awsModal">
+        <a class="card1">
+          <img :src="certificateIntro[1].icon" :alt="certificateIntro[1].title" loading="eager" class="img-fluid cert-icon">
+          <h3>{{  certificateIntro[1].title }}</h3>
+          <div class="go-corner" href="#">
+            <div class="go-arrow">
+              →
+            </div>
+          </div>
+        </a>
+      </div>
+      <GCModal />
+
+      <div class="card-border" data-bs-toggle="modal" data-bs-target="#awsModal">
+        <a class="card1">
+          <img :src="certificateIntro[2].icon" :alt="certificateIntro[2].title" loading="eager" class="img-fluid cert-icon">
+          <h3>{{  certificateIntro[2].title }}</h3>
+          <div class="go-corner" href="#">
+            <div class="go-arrow">
+              →
+            </div>
+          </div>
+        </a>
+      </div>
+      <LcModal />
+
+      <div class="card-border" data-bs-toggle="modal" data-bs-target="#awsModal">
+        <a class="card1">
+          <img :src="certificateIntro[3].icon" :alt="certificateIntro[3].title" loading="eager" class="img-fluid cert-icon">
+          <h3>{{  certificateIntro[3].title }}</h3>
+          <div class="go-corner" href="#">
+            <div class="go-arrow">
+              →
+            </div>
+          </div>
+        </a>
+      </div>
+      <COCTModal />
+
+      </div>
+      <Spinner v-else/>
   </div>
-</div>
 </template>
 
-<script>
-import AOS from "aos";
-import EduCard from "./EduCard.vue";
-import { computed, onMounted, ref } from "vue";
-import { useStore } from "vuex";
-import ButtonEffect from './ButtonEffect.vue';
-import Spinner from "./Spinner.vue";
+<script setup>
+import AOS from 'aos';
+import AwsModal from '@/components/AwsModal.vue'
+import GCModal from './GCModal.vue';
+import LcModal from './LcModal.vue';
+import COCTModal from './COCTModal.vue';
+import Spinner from './Spinner.vue'
+import { computed, onMounted } from 'vue'
+import { useStore } from 'vuex'
+const store = useStore()
+const certificateIntro = computed(() => store.state.certificateIntro)
 
-export default {
-  name: "CertificateComponent",
-  components: {
-    EduCard,
-    ButtonEffect,
-    Spinner
-  },
-  setup() {
-    const store = useStore();
-    const certificateIntro = computed(() => store.state.certificateIntro);
-    const selectedCertificate = ref(null);
-
-    onMounted(() => {
-      setTimeout(() => {
-        store.dispatch("fetchCertificateIntro");
-      }, 1000);
-      AOS.init();
-    });
-
-    const showModal = (certificate) => {
-      selectedCertificate.value = certificate;
-    };
-
-    return {
-      certificateIntro,
-      selectedCertificate,
-      showModal
-    };
-  },
-};
+onMounted(() => {
+  setTimeout(()=>{
+    store.dispatch('fetchCertificateIntro')
+  }, 1000);
+  AOS.init();
+})
 </script>
 
-<style scoped>
-.certificate-container h1 {
+<style>
+.cert-container{
+  margin-top: 5rem;
+}
+
+.certificate-heading h1 {
   color: var(--secondary);
   font-size: 3.2rem;
   letter-spacing: 0.1em;
   text-shadow: -1px -1px 1px #111, 2px 2px 1px var(--alternative);
 }
 
-.certificate-container {
-  margin-top: 5rem;
-}
-
 .certificate-listing {
   display: flex;
   justify-content: center;
@@ -118,115 +102,165 @@ export default {
   margin-top: 2rem;
 }
 
-img[alt="Certificate Image"] {
-  width: 26rem;
-  margin-bottom: 1rem;
+@keyframes border-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.card-border {
+  position: relative;
+  width: 300px;
+  height: 242px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 5px;
+  background: linear-gradient(90deg, var(--alternative), var(--awesome), var(--alternative));
+  background-size: 200% 200%;
+  animation: border-move 4s linear infinite;
+  transition: transform 0.3s;
+}
+
+.card1 {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--awesome);
+  border-radius: 10px;
+  padding: 32px 64px;
+  margin: 0;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.card1:hover {
+  transform: scale(1.05);
+}
+
+.go-corner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  background-color: var(--alternative);
+  border-radius: 0 4px 0 32px;
+}
+
+.go-arrow {
+  margin-top: -4px;
+  margin-right: -4px;
+  color: white;
+  font-family: courier, sans;
+}
+
+.cert-icon{
+  margin-top: 0.5rem;
+}
+
+.card1 h3 {
+  color: var(--secondary);
+  font-size: 1.2rem;
+  line-height: 36px;
+  font-weight: 700;
+  margin: auto;
+  font-weight: 600;
   margin-top: 1rem;
 }
 
-.certificate-content {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  font-size: 1rem;
+.card1:hover h3 { 
+  border-color: #ffffff; 
 }
 
-.modal-body,
-.modal-header,
-.modal-footer {
-  background-color: var(--awesome) !important;
+.card1 p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 30px;
   color: var(--secondary);
+  margin-top: 2rem;
 }
 
-.modal ::-webkit-scrollbar {
-  width: 12px;
+.card1 p.small {
+  font-size: 1.4rem;
+  color: var(--secondary);
+  font-weight: 600;
 }
 
-.modal ::-webkit-scrollbar-track {
-  background-color: var(--awesome) !important;
+.card1:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  background: var(--alternative);
+  height: 36px;
+  width: 36px;
+  border-radius: 32px;
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition: transform 0.25s ease-out;
 }
 
-.modal ::-webkit-scrollbar-thumb {
-  background-color: var(--alternative) !important;
-  border-radius: 10px;
+.card1:hover:before {
+  transform: scale(21);
 }
 
-.modal ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+.card1:hover h3,
+.card1:hover p {
+  transition: all 0.3s ease-out;
+  color: #ffffff;
 }
 
 /* Media query for 555px and less*/
 @media (max-width: 555px){
-  .certificate-container h1 {
+  .card-border {
+  position: relative;
+  width: 288px;
+  height: 242px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 5px;
+  background: linear-gradient(90deg, var(--alternative), var(--awesome), var(--alternative));
+  background-size: 200% 200%;
+  animation: border-move 4s linear infinite;
+  transition: transform 0.3s;
+}
+
+.certificate-heading h1 {
   color: var(--secondary);
   font-size: 2.8rem;
   letter-spacing: 0.1em;
   text-shadow: -1px -1px 1px #111, 2px 2px 1px var(--alternative);
-}
-
-.certificate-listing {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 2rem;
-}
-
-.certificate-listing p{
-  font-size: 1.5rem;
-}
-
-img[alt="Certificate Image"] {
-  width: 20rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-
-.certificate-content {
-  font-size: 1.2rem;
-}
-
-.modal-footer {
-  display: flex;
-  justify-content: center;
 }
 }
 
 /* Media query 556px to 999px */
 @media (min-width: 556px) and (max-width: 999px){
-  .certificate-container h1 {
-  color: var(--secondary);
-  font-size: 2.8rem;
-  letter-spacing: 0.1em;
-  text-shadow: -1px -1px 1px #111, 2px 2px 1px var(--alternative);
+  .card-border {
+  position: relative;
+  width: 285px;
+  height: 242px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 5px;
+  background: linear-gradient(90deg, var(--alternative), var(--awesome), var(--alternative));
+  background-size: 200% 200%;
+  animation: border-move 4s linear infinite;
+  transition: transform 0.3s;
+}
 }
 
-.certificate-listing {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 2rem;
-}
 
-.certificate-listing p{
-  font-size: 1.5rem;
-}
-
-img[alt="Certificate Image"] {
-  width: 28rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-
-.certificate-content {
-  font-size: 1.2rem;
-}
-
-.modal-footer {
-  display: flex;
-  justify-content: center;
-}
-}
 </style>
