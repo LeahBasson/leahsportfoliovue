@@ -4,13 +4,11 @@
     <div class="bubbles-two">
       <span></span>
       <span></span>
+      <span></span>
     </div>
   </div>
       <h1>About</h1>
       <div class="about-content">
-          <div class="about-image">
-              <img class="img-fluid" src="https://leahbasson.github.io/MyImages/images/aboutPortImg.jpg" alt="leahAbout" loading="eager">
-          </div>
           <div class="about-text">
           <p v-if="about">
               <span>{{ about[0]}}</span>
@@ -73,18 +71,28 @@ animation: blurAnimate 5s ease-in-out infinite;
 .bubbles-two span:nth-child(1) {
 width: 30px;
 height: 30px;
-top: 35%;
-left: 42%;
+top: 65%;
+left: 8%;
 background: #a459d1;
 box-shadow: 0 0 0 15px #ff2d7544, 0 0 30px #ff2d75, 0 0 60px #ff2d75;
 animation-duration: 6s;
 }
 
 .bubbles-two span:nth-child(2) {
-width: 60px;
-height: 60px;
-top: 73%;
-left: 85%;
+width: 70px;
+height: 70px;
+top: 68%;
+left: 80%;
+background: #a459d1;
+box-shadow: 0 0 0 15px #ff2d7544, 0 0 30px #ff2d75, 0 0 60px #ff2d75;
+animation-duration: 8s;
+}
+
+.bubbles-two span:nth-child(3) {
+width: 30px;
+height: 30px;
+top: 5%;
+left: 75%;
 background: #a459d1;
 box-shadow: 0 0 0 15px #ff2d7544, 0 0 30px #ff2d75, 0 0 60px #ff2d75;
 animation-duration: 8s;
@@ -115,10 +123,10 @@ padding-bottom: 4rem;
 }
 
 .about-text {
-width: 40vw;
+width: 60vw;
 color: var(--secondary);
 font-size: 1.2rem;
-text-align: left;
+text-align: center;
 display: flex;
 flex-direction: column;
 order:1;
@@ -156,7 +164,7 @@ text-shadow: -1px -1px 1px #111, 2px 2px 1px var(--alternative);
 display: flex;
 justify-content: center;
 padding-top: 2rem;
-padding-bottom: 4rem;
+padding-bottom: 2rem;
 flex-direction: column;
 align-items: center;
 }

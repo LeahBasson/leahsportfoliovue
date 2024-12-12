@@ -2,21 +2,25 @@
     <div class="modal fade" id="GCModal" tabindex="-1" aria-labelledby="GCModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header d-flex justify-content-between">
             <h5 class="modal-title" id="GCModalLabel">Girl Code Hackathon</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></div>
           </div>
           <div class="modal-body">
             <div class="aws-certificates" v-if="certificates">
             <div class="certificate-content">
-              <img :src="certificates[16].img_url" :alt="certificates[16].certificate" loading="eager" class="img-fluid certificates">
-                  <a href="https://leahbasson.github.io/GirlCode/" target="_blank"><button class="btnView">View</button></a>
+              <img :src="certificates[15].img_url" :alt="certificates[15].certificate" loading="eager" class="img-fluid certificates">
+              <p>{{ certificates[15].certificate }}</p>
             </div>
             </div>
     
           </div>
           <div class="modal-footer">
-            <button type="button" class="btnClose" data-bs-dismiss="modal">Close</button>
+            <ButtonEffect
+              label="Close"
+              :action="closeModal"
+              :extraAttributes="{ 'data-bs-dismiss': 'modal' }"
+            />
           </div>
         </div>
       </div>
@@ -24,6 +28,7 @@
 </template>
 
 <script setup>
+import ButtonEffect from './ButtonEffect.vue';
  import { computed, onMounted } from 'vue'
   import { useStore } from 'vuex'
   const store = useStore()
@@ -114,23 +119,25 @@ img[alt="certificate"]{
   color: var(--secondary);
   transition: all 1s;
 }
-.heading{
-  margin-top: 2rem;
-}
 
-.p-button{
-  margin-top: 3rem;
-}
-
-.p-btm{
-  padding-bottom: 3rem;
+.btn-close-modal::before { 
+  content: '×'; 
+  color: white; 
+  font-size: 2rem; 
+  background-color: none;
 }
 
 /* Media query */
-@media (width < 999px)
+/* @media (width < 999px)
 {
   .btnClose{
     margin: auto;
   }
+
+  img[alt="certificate"]{
+  width: 22rem;
+  margin: auto;
+  margin-bottom: 1rem;
 }
+} */
 </style>

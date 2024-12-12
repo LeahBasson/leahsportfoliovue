@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid cert-container">
       <div class="certificate-heading">
-        <h1>Certificates</h1>
+        <h1>Badges</h1>
       </div>
 
       <div class="certificate-listing" v-if="certificateIntro">
@@ -73,6 +73,7 @@ import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 const store = useStore()
 const certificateIntro = computed(() => store.state.certificateIntro)
+// const badgeIntro = computed(() => store.state.certificateIntro)
 
 onMounted(() => {
   setTimeout(()=>{

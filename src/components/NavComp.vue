@@ -3,11 +3,11 @@
     <!-- Menu Section -->
     <div :class="['menu-section', { on: menuOpen }]">
       <div class="logo">
-        <a href="#home">
+        <a href="#home" @click="goToHome">
           <img class="img-fluid" src="https://leahbasson.github.io/MyImages/images/newLogoPortfolio3.png" alt="logo" loading="lazy">
         </a>
       </div>
-      
+
       <div class="menu-toggle" @click="toggleMenu">
         <div class="one" :style="lineStyle('one')"></div>
         <div class="two" :style="lineStyle('two')"></div>
@@ -16,8 +16,8 @@
     </div>
 
     <!-- Navigation Section -->
-    <nav>
-      <ul role="navigation" :class="{ hidden: !menuOpen }">
+    <nav :class="{ open: menuOpen }">
+      <ul role="navigation">
         <li v-for="item in menuItems" :key="item.text">
           <a :href="item.link" @click="handleNavClick(item.link)">{{ item.text }}</a>
         </li>
@@ -36,7 +36,7 @@ export default {
         { text: 'about', link: '#about' },
         { text: 'edu/exp', link: '#EduExp' },
         { text: 'projects', link: '#projects' },
-        { text: 'reach me', link: '#contact' }
+        { text: 'reach me', link: '#contact' },
       ],
     };
   },
@@ -53,26 +53,31 @@ export default {
       return {};
     },
     handleNavClick(link) {
-      // Close the menu
       this.menuOpen = false;
-
-      // Scroll to the target section smoothly
       const target = document.querySelector(link);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    goToHome(event) {
+      event.preventDefault(); // Prevent default anchor link behavior
+      this.menuOpen = false; // Close the menu
+      const homeSection = document.querySelector('#home'); // Find the home section
+      if (homeSection) {
+        homeSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to home
       }
     },
   },
 };
 </script>
 
-
 <style scoped>
+/* Menu Section */
 .menu-section {
   width: 100%;
   display: flex;
-  align-items: center; 
-  justify-content: space-between; 
+  align-items: center;
+  justify-content: space-between;
   padding: 30px 80px;
   background-color: var(--primary);
   position: fixed;
@@ -82,11 +87,11 @@ export default {
 .logo a img {
   width: 100px;
   height: auto;
-  transition: all .5s;
-  
-  &:hover{
-      transform: scale(1.2);
-  }
+  transition: all 0.5s;
+}
+
+.logo a img:hover {
+  transform: scale(1.2);
 }
 
 .menu-toggle {
@@ -97,9 +102,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   margin-right: 2.5rem;
-  position: relative;
 }
-
 
 .one,
 .two,
@@ -110,84 +113,73 @@ export default {
   transition: transform 0.3s, opacity 0.3s;
 }
 
+/* Navigation Section */
 nav {
   position: fixed;
-  top: 130px; 
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100vh;
   background-color: var(--primary);
+  transform: translateY(-100%);
+  transition: transform 0.5s ease-in-out;
   z-index: 9;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav.open {
+  transform: translateY(0);
 }
 
 nav ul {
-  margin: 0;
-  padding: 26px 0;
   list-style: none;
-  font-size: 38px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  margin-top: 5.9rem;
 }
 
-nav ul.hidden {
-  display: none;
-}
+/* nav ul li {
+  margin: 20px 0;
+} */
 
 nav ul a {
   transition: background-color 0.5s;
   text-decoration: none;
   color: white;
-  font-size: 1.5em;
-  line-height: 2;
-  display: block;
+  font-size: 4.7rem;
+  text-transform: uppercase;
+  transition: color 0.3s;
 }
 
 nav ul a:hover {
-  background-color: var(--alternative);
+  color: var(--alternative);
 }
 
-/* Media query for 555px and less*/
-@media (max-width: 555px)
-{
-  nav ul {
-  margin: 0;
-  padding: 26px 0;
-  list-style: none;
-  font-size: 20px;
+/* Responsive Adjustments */
+@media (max-width: 555px) {
+  .menu-section {
+    padding: 30px 20px;
+  }
+  .menu-toggle {
+    margin-right: 1.6rem;
+  }
+  nav ul a {
+    font-size: 3rem;
+  }
 }
 
-.menu-section {
-  width: 100%;
-  position: fixed;
-  display: flex;
-  align-items: center; 
-  justify-content: space-between; 
-  padding: 30px 20px;
-}
-
-.menu-toggle {
-  margin-right: 1.6rem;
-}
-}
-
-/* Media query 556px to 999px */
-@media (min-width: 556px) and (max-width: 999px)
-{
-  nav ul {
-  margin: 0;
-  padding: 26px 0;
-  list-style: none;
-  font-size: 20px;
-}
-
-.menu-section {
-  width: 100%;
-  position: fixed;
-  display: flex;
-  align-items: center; 
-  justify-content: space-between; 
-  padding: 30px 60px;
-}
-
-.menu-toggle {
-  margin-right: 1.6rem;
-}
+@media (min-width: 556px) and (max-width: 999px) {
+  .menu-section {
+    padding: 30px 60px;
+  }
+  .menu-toggle {
+    margin-right: 1.6rem;
+  }
+  nav ul a {
+    font-size: 4.2rem;
+  }
 }
 </style>

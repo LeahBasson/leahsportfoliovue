@@ -175,9 +175,9 @@ img[alt="certificate"]{
 }
 
 .btn-close-modal::before { 
-  content: '×'; /* or use a different icon if you prefer */ 
+  content: '×'; 
   color: white; 
-  font-size: 2rem; /* Adjust size as needed */
+  font-size: 2rem; 
   background-color: none;
 }
 
@@ -187,5 +187,21 @@ img[alt="certificate"]{
       display: flex;
       justify-content: center;
     }
+
+  img[alt="certificate"]{
+  width: 22rem;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+}
+
+/* Media query 556px to 999px */
+@media (min-width: 556px) and (max-width: 999px)
+{
+  img[alt="certificate"]{
+  width: 22rem;
+  margin: auto;
+  margin-bottom: 1rem;
+}
 }
 </style>

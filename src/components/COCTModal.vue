@@ -2,28 +2,34 @@
     <div class="modal fade" id="COCTModal" tabindex="-1" aria-labelledby="COCTModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header d-flex justify-content-between">
             <h5 class="modal-title" id="COCTModalLabel">College of Cape Town</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></div>
           </div>
           <div class="modal-body">
             <div class="aws-certificates" v-if="certificates">
                 <div class="certificate-content">
                   <img :src="certificates[17].img_url" :alt="certificates[17].certificate" loading="eager" class="img-fluid certificates">
                   <p>{{ certificates[17].certificate }}</p>
-                  <a href="https://leahbasson.github.io/resultsCOCT/" target="_blank"><button class="btnView">View</button></a>
             </div> 
             <div class="certificate-content">
                   <img :src="certificates[18].img_url" :alt="certificates[18].certificate" loading="eager" class="img-fluid certificates">
                   <p>{{ certificates[18].certificate }}</p>
-                  <a href="https://leahbasson.github.io/CompletionCertificateCOCT/" target="_blank"><button class="btnView">View</button></a>
+            </div>
+            <div class="certificate-content">
+                  <img :src="certificates[19].img_url" :alt="certificates[19].certificate" loading="eager" class="img-fluid certificates">
+                  <p>{{ certificates[19].certificate }}</p>
             </div>
             </div>
             <Spinner v-else/>
             
           </div>
           <div class="modal-footer">
-            <button type="button" class="btnClose" data-bs-dismiss="modal">Close</button>
+            <ButtonEffect
+              label="Close"
+              :action="closeModal"
+              :extraAttributes="{ 'data-bs-dismiss': 'modal' }"
+            />
           </div>
         </div>
       </div>
@@ -31,6 +37,7 @@
 </template>
 
 <script setup>
+import ButtonEffect from './ButtonEffect.vue';
   import Spinner from './Spinner.vue'
   import { computed, onMounted } from 'vue'
   import { useStore } from 'vuex'
@@ -135,10 +142,16 @@ img[alt="certificate"]{
 }
 
 /* Media query */
-@media (width < 999px)
+/* @media (width < 999px)
 {
   .btnClose{
     margin: auto;
   }
+
+  img[alt="certificate"]{
+  width: 22rem;
+  margin: auto;
+  margin-bottom: 1rem;
 }
+} */
 </style>
