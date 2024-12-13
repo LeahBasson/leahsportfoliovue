@@ -1,14 +1,14 @@
 <template>
-  <div class="container-fluid cert-container">
-      <div class="certificate-heading">
+  <div class="container-fluid badge-container">
+      <div class="badge-heading">
         <h1>Badges</h1>
       </div>
 
-      <div class="certificate-listing" v-if="certificateIntro">
-        <div class="card-border" data-bs-toggle="modal" data-bs-target="#awsModal">
+      <div class="badge-listing" v-if="badgeIntro">
+        <div class="card-border" data-bs-toggle="modal" data-bs-target="#osbModal">
         <a class="card1">
-          <img :src="certificateIntro[0].icon" :alt="certificateIntro[0].title" loading="eager" class="img-fluid cert-icon">
-          <h3>{{  certificateIntro[0].title }}</h3>
+          <img :src="badgeIntro[0].icon" :alt="badgeIntro[0].title" loading="eager" class="img-fluid badge-icon">
+          <h3>{{  badgeIntro[0].title }}</h3>
           <div class="go-corner" href="#">
             <div class="go-arrow">
               →
@@ -16,12 +16,12 @@
           </div>
         </a>
       </div>
-      <AwsModal />
-     
-      <div class="card-border" data-bs-toggle="modal" data-bs-target="#GCModal">
+      <osbModal />
+      
+      <div class="card-border" data-bs-toggle="modal" data-bs-target="#linuxModal">
         <a class="card1">
-          <img :src="certificateIntro[1].icon" :alt="certificateIntro[1].title" loading="eager" class="img-fluid cert-icon">
-          <h3>{{  certificateIntro[1].title }}</h3>
+          <img :src="badgeIntro[1].icon" :alt="badgeIntro[1].title" loading="eager" class="img-fluid badge-icon">
+          <h3>{{  badgeIntro[1].title }}</h3>
           <div class="go-corner" href="#">
             <div class="go-arrow">
               →
@@ -29,12 +29,12 @@
           </div>
         </a>
       </div>
-      <GCModal />
+      <linuxModal/>
 
-      <div class="card-border" data-bs-toggle="modal" data-bs-target="#LcModal">
+      <div class="card-border" data-bs-toggle="modal" data-bs-target="#jcaModal">
         <a class="card1">
-          <img :src="certificateIntro[2].icon" :alt="certificateIntro[2].title" loading="eager" class="img-fluid cert-icon">
-          <h3>{{  certificateIntro[2].title }}</h3>
+          <img :src="badgeIntro[2].icon" :alt="badgeIntro[2].title" loading="eager" class="img-fluid badge-icon">
+          <h3>{{  badgeIntro[2].title }}</h3>
           <div class="go-corner" href="#">
             <div class="go-arrow">
               →
@@ -42,12 +42,12 @@
           </div>
         </a>
       </div>
-      <LcModal />
+      <jcaModal/>
 
-      <div class="card-border" data-bs-toggle="modal" data-bs-target="#COCTModal">
+      <div class="card-border" data-bs-toggle="modal" data-bs-target="#ehModal">
         <a class="card1">
-          <img :src="certificateIntro[3].icon" :alt="certificateIntro[3].title" loading="eager" class="img-fluid cert-icon">
-          <h3>{{  certificateIntro[3].title }}</h3>
+          <img :src="badgeIntro[3].icon" :alt="badgeIntro[3].title" loading="eager" class="img-fluid badge-icon">
+          <h3>{{  badgeIntro[3].title }}</h3>
           <div class="go-corner" href="#">
             <div class="go-arrow">
               →
@@ -55,47 +55,82 @@
           </div>
         </a>
       </div>
-      <COCTModal />
+      <ehModal/>
 
       </div>
       <Spinner v-else/>
+
+      <div class="badge-listing" v-if="caseStudiesIntro">
+
+        <div class="card-border" data-bs-toggle="modal" data-bs-target="#uiuxModal">
+        <a class="card1">
+          <img :src="caseStudiesIntro[0].icon" :alt="caseStudiesIntro[0].title" loading="eager" class="img-fluid badge-icon">
+          <h3>{{  caseStudiesIntro[0].title }}</h3>
+          <div class="go-corner" href="#">
+            <div class="go-arrow">
+              →
+            </div>
+          </div>
+        </a>
+      </div>
+      <uiuxModal/>
+
+      <div class="card-border" data-bs-toggle="modal" data-bs-target="#scrumModal">
+        <a class="card1">
+          <img :src="caseStudiesIntro[1].icon" :alt="caseStudiesIntro[1].title" loading="eager" class="img-fluid badge-icon">
+          <h3>{{  caseStudiesIntro[1].title }}</h3>
+          <div class="go-corner" href="#">
+            <div class="go-arrow">
+              →
+            </div>
+          </div>
+        </a>
+      </div>
+      <scrumModal/>
+
+      </div>
+      <Spinner v-else/>
+
   </div>
 </template>
 
 <script setup>
 import AOS from 'aos';
-import AwsModal from '@/components/AwsModal.vue'
-import GCModal from './GCModal.vue';
-import LcModal from './LcModal.vue';
-import COCTModal from './COCTModal.vue';
+import osbModal from './osbModal.vue';
+import linuxModal from './linuxModal.vue';
+import jcaModal from './jcaModal.vue';
+import ehModal from './ehModal.vue';
+import uiuxModal from './uiuxModal.vue';
+import scrumModal from './scrumModal.vue'
 import Spinner from './Spinner.vue'
 import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 const store = useStore()
-const certificateIntro = computed(() => store.state.certificateIntro)
-// const badgeIntro = computed(() => store.state.certificateIntro)
+const badgeIntro = computed(() => store.state.badgeIntro)
+const caseStudiesIntro = computed(() => store.state.caseStudiesIntro)
 
 onMounted(() => {
   setTimeout(()=>{
-    store.dispatch('fetchCertificateIntro')
+    store.dispatch('fetchBadgeIntro'),
+    store.dispatch('fetchCaseStudiesIntro')
   }, 1000);
   AOS.init();
 })
 </script>
 
 <style>
-.cert-container{
+.badge-container{
   margin-top: 5rem;
 }
 
-.certificate-heading h1 {
+.badge-heading h1 {
   color: var(--secondary);
   font-size: 3.2rem;
   letter-spacing: 0.1em;
   text-shadow: -1px -1px 1px #111, 2px 2px 1px var(--alternative);
 }
 
-.certificate-listing {
+.badge-listing {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -167,7 +202,7 @@ onMounted(() => {
   font-family: courier, sans;
 }
 
-.cert-icon{
+.badge-icon{
   margin-top: 0.5rem;
 }
 
@@ -239,7 +274,7 @@ onMounted(() => {
   transition: transform 0.3s;
 }
 
-.certificate-heading h1 {
+.badge-heading h1 {
   color: var(--secondary);
   font-size: 2.8rem;
   letter-spacing: 0.1em;

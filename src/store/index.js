@@ -17,6 +17,8 @@ export default createStore({
     certificateIntro: null,
     certificates: null,
     badgeIntro: null,
+    badgeInfo: null,
+    caseStudiesIntro: null,
     caseStudies: null
   },
   getters: {
@@ -54,6 +56,12 @@ export default createStore({
     },
     setBadgeIntro(state, value){
       state.badgeIntro = value
+    },
+    setBadges(state, value){
+      state.badgeInfo = value
+    },
+    setCaseStudiesIntro(state, value){
+      state.caseStudiesIntro = value
     },
     setCaseStudies(state, value){
       state.caseStudies = value
@@ -198,6 +206,32 @@ export default createStore({
         Swal.fire({
           title: "Error",
           text: "Failed to fetch data - badges",
+          icon: "error",
+          timer: 2000
+        })
+      }
+    },
+    async fetchBadges(context) {
+      try {
+        let { badgeInfo } = await (await axios.get(portfolioURL)).data
+        context.commit("setBadges", badgeInfo)
+      } catch (e) { 
+        Swal.fire({
+          title: "Error",
+          text: "Failed to fetch data - badges",
+          icon: "error",
+          timer: 2000
+        })
+      }
+    },
+    async fetchCaseStudiesIntro(context) {
+      try {
+        let { caseStudiesIntro } = await (await axios.get(portfolioURL)).data
+        context.commit("setCaseStudiesIntro", caseStudiesIntro)
+      } catch (e) { 
+        Swal.fire({
+          title: "Error",
+          text: "Failed to fetch data - case studies",
           icon: "error",
           timer: 2000
         })

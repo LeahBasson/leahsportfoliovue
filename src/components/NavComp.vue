@@ -158,7 +158,7 @@ nav ul a:hover {
   color: var(--alternative);
 }
 
-/* Responsive Adjustments */
+/* Media query for 555px and less */
 @media (max-width: 555px) {
   .menu-section {
     padding: 30px 20px;
@@ -167,10 +167,11 @@ nav ul a:hover {
     margin-right: 1.6rem;
   }
   nav ul a {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
 }
 
+/* Media query 556px to 999px */
 @media (min-width: 556px) and (max-width: 999px) {
   .menu-section {
     padding: 30px 60px;

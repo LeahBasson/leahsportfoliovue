@@ -91,8 +91,8 @@ animation-duration: 8s;
 .bubbles-two span:nth-child(3) {
 width: 30px;
 height: 30px;
-top: 5%;
-left: 75%;
+top: 18%;
+left: 85%;
 background: #a459d1;
 box-shadow: 0 0 0 15px #ff2d7544, 0 0 30px #ff2d75, 0 0 60px #ff2d75;
 animation-duration: 8s;
