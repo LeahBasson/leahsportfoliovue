@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid badge-container" data-aos="fade-up"  data-aos-duration="3000">
+  <div class="container-fluid badge-container">
       <div class="badge-heading">
         <h1>Badges</h1>
       </div>
@@ -95,7 +95,6 @@
 </template>
 
 <script setup>
-import AOS from 'aos';
 import osbModal from './osbModal.vue';
 import linuxModal from './linuxModal.vue';
 import jcaModal from './jcaModal.vue';
@@ -114,7 +113,6 @@ onMounted(() => {
     store.dispatch('fetchBadgeIntro'),
     store.dispatch('fetchCaseStudiesIntro')
   }, 1000);
-  AOS.init();
 })
 </script>
 

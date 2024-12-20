@@ -1,5 +1,5 @@
 <template>
-    <div class="modal fade" id="osbModal" tabindex="-1" aria-labelledby="awsModalLabel" aria-hidden="true">
+    <div class="modal fade" id="osbModal" tabindex="-1" aria-labelledby="awsModalLabel" aria-hidden="true" data-aos="none">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header d-flex justify-content-between">

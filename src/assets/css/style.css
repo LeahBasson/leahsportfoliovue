@@ -15,15 +15,6 @@
   color: inherit;
 }
 
-.wrapper.sun-mode {
-  background-color: var(--secondary); 
-  color: black !important;
-}
-
-.wrapper.text-black {
-  color: black !important; /* Change text color to black when sunClicked is true */
-}
-
 /* custom variables */
 :root{
   --primary: #1B1B1B;
@@ -95,4 +86,16 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-thumb {
   background: var(--alternative);
   border-radius: 5rem;
+}
+
+[data-aos] {
+  z-index: auto !important; /* Reset z-index for AOS animations */
+}
+
+.modal {
+  z-index: 1055 !important;
+}
+
+.modal-backdrop {
+  z-index: 1040 !important;
 }

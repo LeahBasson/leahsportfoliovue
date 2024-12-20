@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid cert-container" data-aos="fade-up"  data-aos-duration="3000">
+  <div class="container-fluid cert-container">
       <div class="certificate-heading">
         <h1>Certificates</h1>
       </div>
@@ -63,7 +63,6 @@
 </template>
 
 <script setup>
-import AOS from 'aos';
 import AwsModal from '@/components/AwsModal.vue'
 import GCModal from './GCModal.vue';
 import LcModal from './LcModal.vue';
@@ -78,7 +77,6 @@ onMounted(() => {
   setTimeout(()=>{
     store.dispatch('fetchCertificateIntro')
   }, 1000);
-  AOS.init();
 })
 </script>
 
