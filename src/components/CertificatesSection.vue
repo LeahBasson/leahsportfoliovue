@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid cert-container">
+  <div class="container-fluid cert-container" data-aos="fade-up"  data-aos-duration="3000">
       <div class="certificate-heading">
         <h1>Certificates</h1>
       </div>
@@ -84,7 +84,7 @@ onMounted(() => {
 
 <style>
 .cert-container{
-  margin-top: 5rem;
+  margin-top: 8rem;
 }
 
 .certificate-heading h1 {

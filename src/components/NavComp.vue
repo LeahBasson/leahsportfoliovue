@@ -60,13 +60,15 @@ export default {
       }
     },
     goToHome(event) {
-      event.preventDefault(); // Prevent default anchor link behavior
-      this.menuOpen = false; // Close the menu
-      const homeSection = document.querySelector('#home'); // Find the home section
-      if (homeSection) {
-        homeSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to home
-      }
-    },
+  event.preventDefault(); // Prevent default anchor link behavior
+  this.menuOpen = false; // Close the menu
+  const homeSection = document.querySelector('#home'); // Find the home section
+  if (homeSection) {
+    homeSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to home
+    history.pushState(null, null, '#home'); // Update the URL to #home
+  }
+},
+
   },
 };
 </script>

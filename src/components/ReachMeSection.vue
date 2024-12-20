@@ -1,5 +1,5 @@
 <template>
-  <div class="reach-me-container">
+  <div class="reach-me-container" data-aos="fade-up"  data-aos-duration="3000">
     <h1>Reach Me</h1>
 
     <div class="reach-me-content">
@@ -236,12 +236,21 @@ export default {
   transition: background-color 0.3s ease-in-out;
 }
 
-input[class=form-control]:focus{
-  border: 2px solid var(--alternative);
+input[class=form-control]:focus, 
+textarea[id=message]:focus, 
+select[class=form-control]:focus{
+  outline: none; /* Removes the browser's default focus outline */
+  box-shadow: 0 0 1rem 0.2rem var(--alternative) !important; 
+  border-color: var(--alternative); 
 }
 
-textarea[id=message]:focus{
-  border: 2px solid var(--alternative);
+input[class=form-control],
+textarea[id=message] {
+   border: 2px solid var(--alternative);
+}
+
+input[class=form-control]:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px #ffffff inset !important; /* Set the background color to match your design */
 }
 
 /* Media query for 555px and less*/

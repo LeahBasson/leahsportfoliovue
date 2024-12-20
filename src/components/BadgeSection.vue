@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid badge-container">
+  <div class="container-fluid badge-container" data-aos="fade-up"  data-aos-duration="3000">
       <div class="badge-heading">
         <h1>Badges</h1>
       </div>

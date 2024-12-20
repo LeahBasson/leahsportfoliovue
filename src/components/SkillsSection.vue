@@ -52,7 +52,7 @@
   <style scoped>
   .skills-container {
     text-align: center;
-    margin: 60px auto;
+    margin: 70px auto;
   }
   
   .skills-container h1 {

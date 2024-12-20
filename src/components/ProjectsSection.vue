@@ -1,9 +1,9 @@
 <template>
-    <div class="projects-container">
+    <div class="projects-container" data-aos="fade-up"  data-aos-duration="3000">
         <h1>Projects</h1>
     </div>
 
-    <div class="row project-nav">
+    <div class="row project-nav" data-aos="fade-up"  data-aos-duration="3000">
         <ul class="nav nav-pills d-flex justify-content-center mt-4 purple" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link text-white show active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true">All</button>
@@ -23,7 +23,7 @@
     </ul>
     </div>
 
-    <div class="tab-content center" id="pills-tabContent">
+    <div class="tab-content center" id="pills-tabContent" data-aos="fade-up"  data-aos-duration="3000">
         <!-- All Projects -->
         <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
             <div class="projects-listing" v-if="projects?.length">
