@@ -126,18 +126,4 @@ img[alt="certificate"]{
   font-size: 2rem; 
   background-color: none;
 }
-
-/* Media query */
-/* @media (width < 999px)
-{
-  .btnClose{
-    margin: auto;
-  }
-
-  img[alt="certificate"]{
-  width: 22rem;
-  margin: auto;
-  margin-bottom: 1rem;
-}
-} */
 </style>

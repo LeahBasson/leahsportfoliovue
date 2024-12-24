@@ -143,10 +143,6 @@ nav ul {
   margin-top: 5.9rem;
 }
 
-/* nav ul li {
-  margin: 20px 0;
-} */
-
 nav ul a {
   transition: background-color 0.5s;
   text-decoration: none;

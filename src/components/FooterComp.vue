@@ -1,9 +1,10 @@
 <template>
     <footer class="container-fluid">
-        <div class="row">
-            <p class="lead text-white contactP">
+        <div class="row contactP">
+            <p class="lead text-white">
                 <span class="shadow">Leah's Portfolio</span>
-                <span >&copy; {{ cYear }}</span>
+                <span >&copy; {{ cYear }}.</span>
+                <span> All Rights Reserved.</span>
             </p>
         </div>
       </footer>
@@ -21,5 +22,7 @@
   </script>
   
   <style>
-  
+  .contactP p{
+    font-size: 1rem;
+  }
   </style>

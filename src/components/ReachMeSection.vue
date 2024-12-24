@@ -155,13 +155,11 @@ export default {
 
   .contact-left{
     width: 28vw;
-    /* background-color: burlywood; */
     font-size: 1.1rem;
   }
 
   .contact-right{
     width: 40vw;
-    /* background-color: lightcyan; */
     text-align: left;
     margin-top: 1rem;
   }
@@ -184,7 +182,6 @@ export default {
   display: flex;
   justify-content: space-between;
   width: 30%;
-  /* background-color: pink; */
 }
 
 .contact-icons i{
@@ -250,7 +247,7 @@ textarea[id=message] {
 }
 
 input[class=form-control]:-webkit-autofill {
-  box-shadow: 0 0 0px 1000px #ffffff inset !important; /* Set the background color to match your design */
+  box-shadow: 0 0 0px 1000px #ffffff inset !important; 
 }
 
 /* Media query for 555px and less*/

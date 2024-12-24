@@ -91,19 +91,6 @@ img[alt='leah']{
         0 0 0.5rem 1.2rem var(--secondary); /* Additional layer for a wider effect */
 }
 
-/* .btnResume{
-    background-color: transparent;
-    border: 1px solid var(--alternative);
-    border-radius: 0.5rem;
-    padding: 8px 22px;
-    margin-top: 1rem;
-}
-
-.btnResume a{
-    color: var(--secondary);
-    text-decoration: none;
-} */
-
 .btnResume:hover{
     background-color: var(--alternative);
 }
@@ -212,7 +199,6 @@ img[alt='leah']{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /* gap: 2rem; */
     padding-top: 160px;
 }
 
@@ -241,7 +227,6 @@ img[alt='leah']{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    /* background-color: powderblue; */
 }
 
 .home-icons{
@@ -300,7 +285,6 @@ img[alt='leah']{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    /* background-color: powderblue; */
 }
 
 .home-icons{
@@ -320,7 +304,5 @@ img[alt='leah']{
 .greeting h3{
     font-size: 2.5rem;
 }
-
 }
-
 </style>

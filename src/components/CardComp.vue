@@ -127,6 +127,5 @@ export default {
   animation: border-move 4s linear infinite;
   transition: transform 0.3s;
 }
-
 }
 </style>

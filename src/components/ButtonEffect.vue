@@ -113,7 +113,5 @@ export default {
   margin-top: 2rem;
   font-size: 1.4rem;
 }
-
-
 }
 </style>

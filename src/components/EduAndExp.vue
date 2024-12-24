@@ -153,13 +153,11 @@
     
     .education-content {
         width: 44vw;
-        /* background-color: pink; */
         margin-left: 2rem;
     }
     
     .experience-content {
         width: 44vw;
-        /* background-color: purple; */
     }
 
     .experience-content .edu-block-border{
@@ -241,14 +239,12 @@
 
         .education-content {
         width: 100%;
-        /* background-color: pink; */
         margin-left: 0rem;
         }
 
         .experience-content {
         width: 100%;
         margin-top: 3rem;
-        /* background-color: purple; */
     }
 
     .edu-block-border{
@@ -287,14 +283,12 @@
 
         .education-content {
         width: 100%;
-        /* background-color: pink; */
         margin-left: 0rem;
         }
 
         .experience-content {
         width: 100%;
         margin-top: 3rem;
-        /* background-color: purple; */
     }
 
     .edu-block-border{
