@@ -2,6 +2,7 @@
   <div class="container-fluid cert-container">
       <div class="certificate-heading">
         <h1>Certificates</h1>
+        <p>Tap on card to view the certificate</p>
       </div>
 
       <div class="certificate-listing" v-if="certificateIntro">
@@ -90,6 +91,11 @@ onMounted(() => {
   font-size: 3.2rem;
   letter-spacing: 0.1em;
   text-shadow: -1px -1px 1px #111, 2px 2px 1px var(--alternative);
+}
+
+.certificate-heading p{
+  color: var(--secondary);
+  font-size: 1.1rem;
 }
 
 .certificate-listing {
@@ -257,6 +263,11 @@ onMounted(() => {
   background-size: 200% 200%;
   animation: border-move 4s linear infinite;
   transition: transform 0.3s;
+}
+
+.certificate-heading p{
+  color: var(--secondary);
+  font-size: 1.2rem;
 }
 }
 

@@ -2,6 +2,7 @@
   <div class="container-fluid badge-container">
       <div class="badge-heading">
         <h1>Badges</h1>
+        <p>Tap on card to view the badge</p>
       </div>
 
       <div class="badge-listing" v-if="badgeIntro">
@@ -9,7 +10,7 @@
         <a class="card1">
           <img :src="badgeIntro[0].icon" :alt="badgeIntro[0].title" loading="eager" class="img-fluid badge-icon">
           <h3>{{  badgeIntro[0].title }}</h3>
-          <div class="go-corner" href="#">
+          <div class="go-corner">
             <div class="go-arrow">
               →
             </div>
@@ -22,7 +23,7 @@
         <a class="card1">
           <img :src="badgeIntro[1].icon" :alt="badgeIntro[1].title" loading="eager" class="img-fluid badge-icon">
           <h3>{{  badgeIntro[1].title }}</h3>
-          <div class="go-corner" href="#">
+          <div class="go-corner">
             <div class="go-arrow">
               →
             </div>
@@ -128,6 +129,11 @@ onMounted(() => {
   text-shadow: -1px -1px 1px #111, 2px 2px 1px var(--alternative);
 }
 
+.badge-heading p{
+  color: var(--secondary);
+  font-size: 1.1rem;
+}
+
 .badge-listing {
   display: flex;
   justify-content: center;
@@ -177,6 +183,7 @@ onMounted(() => {
 
 .card1:hover {
   transform: scale(1.05);
+  cursor: pointer;
 }
 
 .go-corner {
@@ -293,6 +300,11 @@ onMounted(() => {
   background-size: 200% 200%;
   animation: border-move 4s linear infinite;
   transition: transform 0.3s;
+}
+
+.badge-heading p{
+  color: var(--secondary);
+  font-size: 1.2rem;
 }
 }
 
