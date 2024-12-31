@@ -15,7 +15,7 @@
           <p>South Africa , Cape Town</p>
           <p><i class="bi bi-geo"></i> Address: Ottery , 7800</p>
           <p><i class="bi bi-phone"></i> Phone number: +27 66 243 1477</p>
-          <p><i class="bi bi-envelope-at"></i> Email: leahbasson57@gmail.com</p>
+          <p><i class="bi bi-envelope-at"></i> Email: leahbasson54@gmail.com</p>
         </div>
       </div>
 
