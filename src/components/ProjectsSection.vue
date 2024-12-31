@@ -23,6 +23,10 @@
     </ul>
     </div>
 
+    <div class="p-help" data-aos="fade-up"  data-aos-duration="3000">
+          <p>Tap to view the project</p>
+    </div>
+
     <div class="tab-content center" id="pills-tabContent" data-aos="fade-up"  data-aos-duration="3000">
         <!-- All Projects -->
         <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
@@ -455,6 +459,10 @@ import { useStore } from 'vuex'
     margin-top: 0.2rem;
 }
 
+.p-help p {
+  display: none;
+}
+
 /* Media query for 555px and less */
 @media (max-width: 555px) {
   .project-nav ul{
@@ -462,9 +470,23 @@ import { useStore } from 'vuex'
   width: 90%;
 }
 
+.projects-container h1 {
+  font-size: 2.8rem;
+}
+
 .nav-pills li{
   font-size: 1.3rem;
   padding: 8px 18px;
+}
+
+.p-help p {
+  display: block;
+  margin-top: 1.2rem;
+}
+
+.p-help p {
+  color: var(--secondary);
+  font-size: 1.2rem;
 }
 }
 
@@ -478,6 +500,16 @@ import { useStore } from 'vuex'
 .nav-pills li{
   font-size: 1.3rem;
   padding: 8px 18px;
+}
+
+.p-help p {
+  display: block;
+  margin-top: 1.2rem;
+}
+
+.p-help p {
+  color: var(--secondary);
+  font-size: 1.3rem;
 }
 }
 </style>

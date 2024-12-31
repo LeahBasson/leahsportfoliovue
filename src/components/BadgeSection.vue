@@ -2,7 +2,7 @@
   <div class="container-fluid badge-container">
       <div class="badge-heading">
         <h1>Badges</h1>
-        <p>Tap on card to view the badge</p>
+        <p>Tap to view the badge</p>
       </div>
 
       <div class="badge-listing" v-if="badgeIntro">
