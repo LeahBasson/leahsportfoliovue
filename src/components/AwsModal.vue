@@ -9,7 +9,7 @@
           <div class="modal-body">
             <div class="aws-certificates" v-if="certificates">
                 <div class="certificate-content">
-                  <img :src="certificates[0].img_url" alt="certificate" loading="eager">
+                  <img :src="certificates[0].img_url" alt="certificate" loading="eager" class="img-fluid">
                   <p>{{ certificates[0].certificate }}</p>
             </div>
             <div class="certificate-content">

@@ -26,5 +26,6 @@
     font-size: 1rem;
     width: 70%;
     margin: auto;
+    padding-bottom: 1rem;
   }
   </style>
