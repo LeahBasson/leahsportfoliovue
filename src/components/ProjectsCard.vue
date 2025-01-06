@@ -100,6 +100,27 @@
   transform: translateY(95%); /* Slide footer into place */
   opacity: 1; /* Make it visible */
 }
+
+/* Media query for 555px and less*/
+@media (max-width: 555px){
+  .card-footer {
+    position: static; /* No absolute positioning for mobile */
+    transform: translateY(0%); /* Ensure it is visible */
+    opacity: 1; /* Fully visible */
+    margin-top: 1rem; /* Add spacing if needed */
+    transition: none;
+  }
+
+  .projects-card {
+    height: auto; /* Adjust height for mobile to fit content */
+    padding-bottom: 20px; /* Add padding to avoid footer overflow */
+  }
+
+  .projects-card:hover .card-footer {
+    transform: none; /* Prevent any movement on hover */
+    opacity: 1; /* Ensure visibility remains constant */
+  }
+}
 </style>
 
   

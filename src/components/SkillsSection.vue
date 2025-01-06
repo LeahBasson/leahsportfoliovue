@@ -7,6 +7,9 @@
             <img :src="skill.img_url" :alt="skill.skillName"/>
             <h4>{{ skill.skillName }}</h4>
             <h5><span>{{ skill.level }}</span></h5>
+            <div class="hidden-div" data-aos="fade-up"  data-aos-duration="1000">
+              <h6>Click Here >></h6>
+            </div>
           </template>
   
           <template #cardOverlay>
@@ -80,6 +83,10 @@
     font-weight: bold;
   }
 
+  .hidden-div h6{
+    display:none;
+  }
+
   /* Media query for 555px and less*/
   @media (max-width: 555px){
     .skills-div {
@@ -96,6 +103,22 @@
     letter-spacing: 0.1em;
     text-shadow: -1px -1px 1px #111, 2px 2px 1px var(--alternative);
   }
+
+  .hidden-div h6{
+    display:block;
+    margin-top: 1rem;
+    font-size: 1.1rem;
   }
+  }
+
+  /* Media query 556px to 999px */
+@media (min-width: 556px) and (max-width: 999px)
+{
+  .hidden-div h6{
+    display:block;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+}
   </style>
   

@@ -24,5 +24,7 @@
   <style>
   .contactP p{
     font-size: 1rem;
+    width: 70%;
+    margin: auto;
   }
   </style>

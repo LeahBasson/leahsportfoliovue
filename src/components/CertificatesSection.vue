@@ -2,7 +2,6 @@
   <div class="container-fluid cert-container">
       <div class="certificate-heading">
         <h1>Certificates</h1>
-        <p>Tap to view the certificate</p>
       </div>
 
       <div class="certificate-listing" v-if="certificateIntro">
@@ -10,6 +9,9 @@
         <a class="card1">
           <img :src="certificateIntro[0].icon" :alt="certificateIntro[0].title" loading="eager" class="img-fluid cert-icon">
           <h3>{{  certificateIntro[0].title }}</h3>
+          <div class="hidden-div" data-aos="fade-up"  data-aos-duration="1000">
+              <h6>Click Here >></h6>
+          </div>
           <div class="go-corner" href="#">
             <div class="go-arrow">
               →
@@ -23,6 +25,9 @@
         <a class="card1">
           <img :src="certificateIntro[1].icon" :alt="certificateIntro[1].title" loading="eager" class="img-fluid cert-icon">
           <h3>{{  certificateIntro[1].title }}</h3>
+          <div class="hidden-div" data-aos="fade-up"  data-aos-duration="1000">
+              <h6>Click Here >></h6>
+          </div>
           <div class="go-corner" href="#">
             <div class="go-arrow">
               →
@@ -36,6 +41,9 @@
         <a class="card1">
           <img :src="certificateIntro[2].icon" :alt="certificateIntro[2].title" loading="eager" class="img-fluid cert-icon">
           <h3>{{  certificateIntro[2].title }}</h3>
+          <div class="hidden-div" data-aos="fade-up"  data-aos-duration="1000">
+              <h6>Click Here >></h6>
+          </div>
           <div class="go-corner" href="#">
             <div class="go-arrow">
               →
@@ -49,6 +57,9 @@
         <a class="card1">
           <img :src="certificateIntro[3].icon" :alt="certificateIntro[3].title" loading="eager" class="img-fluid cert-icon">
           <h3>{{  certificateIntro[3].title }}</h3>
+          <div class="hidden-div" data-aos="fade-up"  data-aos-duration="1000">
+              <h6>Click Here >></h6>
+          </div>
           <div class="go-corner" href="#">
             <div class="go-arrow">
               →
@@ -227,6 +238,11 @@ onMounted(() => {
   color: #ffffff;
 }
 
+.hidden-div h6{
+  color: var(--secondary);
+  display: none;
+}
+
 /* Media query for 555px and less*/
 @media (max-width: 555px){
   .card-border {
@@ -248,6 +264,13 @@ onMounted(() => {
   letter-spacing: 0.1em;
   text-shadow: -1px -1px 1px #111, 2px 2px 1px var(--alternative);
 }
+
+.hidden-div h6{
+  color: var(--secondary);
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
 }
 
 /* Media query 556px to 999px */
@@ -267,6 +290,13 @@ onMounted(() => {
 
 .certificate-heading p{
   color: var(--secondary);
+  font-size: 1.2rem;
+}
+
+.hidden-div h6{
+  color: var(--secondary);
+  display: block;
+  margin-top: 1rem;
   font-size: 1.2rem;
 }
 }

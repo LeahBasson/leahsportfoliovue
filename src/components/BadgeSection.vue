@@ -2,7 +2,6 @@
   <div class="container-fluid badge-container">
       <div class="badge-heading">
         <h1>Badges</h1>
-        <p>Tap to view the badge</p>
       </div>
 
       <div class="badge-listing" v-if="badgeIntro">
@@ -10,6 +9,9 @@
         <a class="card1">
           <img :src="badgeIntro[0].icon" :alt="badgeIntro[0].title" loading="eager" class="img-fluid badge-icon">
           <h3>{{  badgeIntro[0].title }}</h3>
+          <div class="hidden-div" data-aos="fade-up"  data-aos-duration="1000">
+              <h6>Click Here >></h6>
+          </div>
           <div class="go-corner">
             <div class="go-arrow">
               →
@@ -23,6 +25,9 @@
         <a class="card1">
           <img :src="badgeIntro[1].icon" :alt="badgeIntro[1].title" loading="eager" class="img-fluid badge-icon">
           <h3>{{  badgeIntro[1].title }}</h3>
+          <div class="hidden-div" data-aos="fade-up"  data-aos-duration="1000">
+              <h6>Click Here >></h6>
+          </div>
           <div class="go-corner">
             <div class="go-arrow">
               →
@@ -36,6 +41,9 @@
         <a class="card1">
           <img :src="badgeIntro[2].icon" :alt="badgeIntro[2].title" loading="eager" class="img-fluid badge-icon">
           <h3>{{  badgeIntro[2].title }}</h3>
+          <div class="hidden-div" data-aos="fade-up"  data-aos-duration="1000">
+              <h6>Click Here >></h6>
+          </div>
           <div class="go-corner" href="#">
             <div class="go-arrow">
               →
@@ -49,6 +57,9 @@
         <a class="card1">
           <img :src="badgeIntro[3].icon" :alt="badgeIntro[3].title" loading="eager" class="img-fluid badge-icon">
           <h3>{{  badgeIntro[3].title }}</h3>
+          <div class="hidden-div" data-aos="fade-up"  data-aos-duration="1000">
+              <h6>Click Here >></h6>
+          </div>
           <div class="go-corner" href="#">
             <div class="go-arrow">
               →
@@ -67,6 +78,9 @@
         <a class="card1">
           <img :src="caseStudiesIntro[0].icon" :alt="caseStudiesIntro[0].title" loading="eager" class="img-fluid badge-icon">
           <h3>{{  caseStudiesIntro[0].title }}</h3>
+          <div class="hidden-div" data-aos="fade-up"  data-aos-duration="1000">
+              <h6>Click Here >></h6>
+          </div>
           <div class="go-corner" href="#">
             <div class="go-arrow">
               →
@@ -80,6 +94,9 @@
         <a class="card1">
           <img :src="caseStudiesIntro[1].icon" :alt="caseStudiesIntro[1].title" loading="eager" class="img-fluid badge-icon">
           <h3>{{  caseStudiesIntro[1].title }}</h3>
+          <div class="hidden-div" data-aos="fade-up"  data-aos-duration="1000">
+              <h6>Click Here >></h6>
+          </div>
           <div class="go-corner" href="#">
             <div class="go-arrow">
               →
@@ -269,7 +286,7 @@ onMounted(() => {
   .card-border {
   position: relative;
   width: 288px;
-  height: 242px;
+  height: 270px;
   border-radius: 10px;
   overflow: hidden;
   padding: 5px;
