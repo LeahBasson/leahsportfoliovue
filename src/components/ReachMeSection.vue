@@ -1,5 +1,5 @@
 <template>
-  <div class="reach-me-container" data-aos="fade-up"  data-aos-duration="3000">
+  <div class="reach-me-container">
     <h1>Reach Me</h1>
 
     <div class="reach-me-content">
@@ -68,8 +68,6 @@
 </template>
 
 <script>
-import AOS from "aos"; 
-
 export default {
   name: "ReachMe",
   data() {
@@ -126,9 +124,6 @@ export default {
       document.getElementById("cell_error").innerHTML = "";
       document.getElementById("message_error").innerHTML = "";
     },
-  },
-  mounted() {
-    AOS.init();
   },
 };
 </script>

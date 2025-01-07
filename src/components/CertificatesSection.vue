@@ -132,7 +132,7 @@ onMounted(() => {
 .card-border {
   position: relative;
   width: 300px;
-  height: 242px;
+  height: 272px;
   border-radius: 10px;
   overflow: hidden;
   padding: 5px;
@@ -220,8 +220,8 @@ onMounted(() => {
   top: -16px;
   right: -16px;
   background: var(--alternative);
-  height: 36px;
-  width: 36px;
+  height: 38px;
+  width: 38px;
   border-radius: 32px;
   transform: scale(1);
   transform-origin: 50% 50%;
@@ -240,7 +240,8 @@ onMounted(() => {
 
 .hidden-div h6{
   color: var(--secondary);
-  display: none;
+  margin-top: 1rem;
+  font-size: 1.1rem;
 }
 
 /* Media query for 555px and less*/
@@ -267,7 +268,6 @@ onMounted(() => {
 
 .hidden-div h6{
   color: var(--secondary);
-  display: block;
   margin-top: 1rem;
   font-size: 1.1rem;
 }
