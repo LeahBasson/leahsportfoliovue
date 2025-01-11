@@ -7,5 +7,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.js'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'bootstrap'
 import 'aos/dist/aos.css'
+import './registerServiceWorker'
 
 createApp(App).use(store).use(router).mount('#app')
