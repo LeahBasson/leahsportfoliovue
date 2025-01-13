@@ -13,6 +13,27 @@
               <p>{{ certificates[16].certificate }}</p>
             </div>
             </div>
+
+            <div class="aws-certificates" v-if="certificates">
+            <div class="certificate-content">
+              <img :src="certificates[20].img_url" :alt="certificates[20].certificate" loading="eager" class="img-fluid certificates">
+              <p>{{ certificates[20].certificate }}</p>
+            </div>
+            </div>
+
+            <div class="aws-certificates" v-if="certificates">
+            <div class="certificate-content">
+              <img :src="certificates[21].img_url" :alt="certificates[21].certificate" loading="eager" class="img-fluid certificates">
+              <p>{{ certificates[21].certificate }}</p>
+            </div>
+            </div>
+
+            <div class="aws-certificates" v-if="certificates">
+            <div class="certificate-content">
+              <img :src="certificates[22].img_url" :alt="certificates[22].certificate" loading="eager" class="img-fluid certificates">
+              <p>{{ certificates[22].certificate }}</p>
+            </div>
+            </div>
     
           </div>
           <div class="modal-footer">
