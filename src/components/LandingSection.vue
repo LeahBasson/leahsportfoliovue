@@ -16,7 +16,7 @@
             <div>
                 <ButtonEffect 
       label="Download my CV" 
-      href="https://drive.google.com/uc?export=download&id=1LyvBmO2PPeStOd0AIp74bYFCVT4uWi4f"
+      href="https://drive.google.com/uc?export=download&id=1aFpnsqtc-Qo8JTzL5dXOysI_jq-0nyqs"
     />
             </div>
             <div class="home-icons">
