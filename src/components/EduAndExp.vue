@@ -192,6 +192,7 @@
         background-color: var(--awesome);
         border-radius: 0.3rem;
         text-align: left;
+        height: 9rem;
     }
     
     .edu-block p {
@@ -228,6 +229,16 @@
         letter-spacing: 0.1em;
         text-shadow: -1px -1px 1px #111, 2px 2px 1px var(--alternative);
         }
+
+        .edu-block {
+        position: relative;
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--awesome);
+        border-radius: 0.3rem;
+        text-align: left;
+        height: 12.8rem;
+    }
 
         .edu-exp-content {
         display: flex;
@@ -304,6 +315,10 @@
 
     .experience-content h1{
         margin-left: 0rem;
+    }
+
+    .edu-block{
+        height: 12.8rem;
     }
 
     .edu-block p {

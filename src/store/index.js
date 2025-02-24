@@ -19,7 +19,8 @@ export default createStore({
     badgeIntro: null,
     badgeInfo: null,
     caseStudiesIntro: null,
-    caseStudies: null
+    caseStudies: null,
+    hobbies: null
   },
   getters: {
   },
@@ -65,6 +66,9 @@ export default createStore({
     },
     setCaseStudies(state, value){
       state.caseStudies = value
+    },
+    setHobbies(state, value){
+      state.hobbies = value
     }
   },
   actions: {
@@ -245,6 +249,19 @@ export default createStore({
         Swal.fire({
           title: "Error",
           text: "Failed to fetch data - case studies",
+          icon: "error",
+          timer: 2000
+        })
+      }
+    },
+    async fetchHobbies(context) {
+      try {
+        let { hobbies } = await (await axios.get(portfolioURL)).data
+        context.commit("setHobbies", hobbies)
+      } catch (e) { 
+        Swal.fire({
+          title: "Error",
+          text: "Failed to fetch data - hobbies",
           icon: "error",
           timer: 2000
         })

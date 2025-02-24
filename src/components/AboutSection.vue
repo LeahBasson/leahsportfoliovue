@@ -18,6 +18,10 @@
           <p v-if="quote">
               <span>{{ quote[0]}}</span>
           </p>
+          <h4>HOBBIES:</h4>
+          <p v-if="hobbies">
+              <span>{{ hobbies[0]}}</span>
+          </p>
           <Spinner v-else/>
           </div>
       </div>
@@ -32,10 +36,12 @@ import AOS from 'aos';
   const store = useStore()
   const about = computed(() => store.state.about)
   const quote = computed(() => store.state.quote)
+  const hobbies = computed(() => store.state.hobbies)
   onMounted(() => {
     setTimeout(()=>{
       store.dispatch('fetchAbout'),
       store.dispatch('fetchQuote')
+      store.dispatch('fetchHobbies')
     }, 1000)
     AOS.init();
   })
@@ -81,7 +87,7 @@ animation-duration: 6s;
 .bubbles-two span:nth-child(2) {
 width: 70px;
 height: 70px;
-top: 68%;
+top: 70%;
 left: 80%;
 background: #a459d1;
 box-shadow: 0 0 0 15px #ff2d7544, 0 0 30px #ff2d75, 0 0 60px #ff2d75;
